@@ -2,10 +2,11 @@ import React from 'react'
 
 export default function grids({recipe}) {
     return (
-        <div className="row">
-            <div className="col-md-3">
-            <p>{recipe["recipe"]["label"]}</p>
+        recipe["recipe"]["image"].match(/\.(jpeg|jpg|png)$/) != null && (
+            <div className="col-md-4">
+                <img class="rounded img-fluid mx-auto d-block" src={recipe["recipe"]["image"]} />
+                <h6 class="text-center pt-4">{recipe["recipe"]["label"]}</h6>
             </div>
-        </div>
+        )
     );
 }
